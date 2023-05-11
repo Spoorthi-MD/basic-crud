@@ -17,7 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+
+from rest_framework.routers import DefaultRouter
+from app1.views import StudViewset
+
+
+router = DefaultRouter()
+router.register('stud' , StudViewset, basename='stud')
+
+
+
 urlpatterns = [
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api/', include('app1.urls'))
 ]

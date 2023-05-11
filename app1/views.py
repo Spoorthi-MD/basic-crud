@@ -5,7 +5,17 @@ from rest_framework import status
 from .models import Students
 from .serializers import StudentSerializer
 from django.shortcuts import get_object_or_404
+from rest_framework.viewsets import  ModelViewSet
 # Create your views here.
+
+
+
+# Here I implemented ModelViewSet
+class StudViewset(ModelViewSet):
+    queryset = Students.objects.all()
+    serializer_class = StudentSerializer
+
+
 
 class StudentView(APIView):
 
